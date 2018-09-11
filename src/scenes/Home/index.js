@@ -14,7 +14,7 @@ class Home extends Component {
         <h1>Home</h1>
         <p>Welcome home!</p>
         <button onClick={() => this.props.changePage('/about-us')}>Go to about page via redux</button>
-        <button onClick={() => this.props.simpleAction('AHAHAHA')}>BUTTON</button>
+        <button onClick={() => this.props.changeString('AHAHAHA')}>BUTTON</button>
       </div>
     );
   }
@@ -31,11 +31,12 @@ const mapStateToProps = ({ SimpleReducer }) => {
   const { fakeVar, result } = SimpleReducer;
   return { fakeVar, result };
 };
-const mapDispatchToProps = dispatch => bindActionCreators({
+const mapDispatchToProps = (dispatch) => bindActionCreators({
   changePage: (location) => push(location),
+  changeString: (payload) => simpleAction(payload),
 }, dispatch);
 
 export default connect(
   mapStateToProps,
-  { simpleAction, secondAction }
+  mapDispatchToProps,
 )(Home)

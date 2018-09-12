@@ -1,4 +1,4 @@
 import { combineReducers } from 'redux';
-import SimpleReducer from './SimpleReducer';
+import operations from './operations/reducer';
 
-export default combineReducers({ SimpleReducer });
+export default combineReducers({ operations });

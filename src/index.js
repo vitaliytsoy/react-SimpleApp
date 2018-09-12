@@ -6,7 +6,7 @@ import store, { history } from './store'
 
 
 import App from './App';
-import './index.css';
+import './scss/index.css';
 
 // import registerServiceWorker from './registerServiceWorker';
 

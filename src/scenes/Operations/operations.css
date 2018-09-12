@@ -1,0 +1,137 @@
+.container-operations {
+  background: #FFFFFF;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2); }
+
+.operations__toggle {
+  display: flex;
+  flex-flow: row wrap;
+  text-transform: uppercase;
+  font-size: 12px;
+  margin-top: 40px; }
+  .operations__toggle__item {
+    cursor: pointer; }
+    .operations__toggle__item.isActive {
+      color: #3399FF; }
+    .operations__toggle__item:not(:first-child) {
+      padding-left: 30px; }
+
+.operations__table {
+  width: 96%;
+  margin: 30px 0 20px 0; }
+  .operations__table tr {
+    color: #333333;
+    letter-spacing: -0.52px;
+    height: 40px;
+    font-size: 14px; }
+    .operations__table tr:not(:first-child) td {
+      border-bottom: 1px solid #EDEEEE; }
+    .operations__table tr:first-child {
+      background: #EDEEEE;
+      font-size: 13px; }
+      .operations__table tr:first-child.date.up th:nth-child(1):after {
+        transform: rotate(180deg); }
+      .operations__table tr:first-child.date th:nth-child(1):after {
+        border-top: 5px solid #3399FF; }
+      .operations__table tr:first-child.type.up th:nth-child(2):after {
+        transform: rotate(180deg); }
+      .operations__table tr:first-child.type th:nth-child(2):after {
+        border-top: 5px solid #3399FF; }
+      .operations__table tr:first-child.area.up th:nth-child(3):after {
+        transform: rotate(180deg); }
+      .operations__table tr:first-child.area th:nth-child(3):after {
+        border-top: 5px solid #3399FF; }
+      .operations__table tr:first-child.assessment.up th:nth-child(4):after {
+        transform: rotate(180deg); }
+      .operations__table tr:first-child.assessment th:nth-child(4):after {
+        border-top: 5px solid #3399FF; }
+      .operations__table tr:first-child th {
+        text-align: left;
+        padding: 15px 15px;
+        cursor: pointer; }
+        .operations__table tr:first-child th:after {
+          transition: transform 0.35s ease;
+          transform-origin: 50% 50%; }
+        .operations__table tr:first-child th:nth-child(1) {
+          width: 12%; }
+          .operations__table tr:first-child th:nth-child(1):after {
+            content: '';
+            display: inline-block;
+            width: 0;
+            height: 0;
+            margin: 0 0 2px 5px;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 5px solid #A7A9AC; }
+        .operations__table tr:first-child th:nth-child(2) {
+          width: 38%; }
+          .operations__table tr:first-child th:nth-child(2):after {
+            content: '';
+            display: inline-block;
+            width: 0;
+            height: 0;
+            margin: 0 0 2px 5px;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 5px solid #A7A9AC; }
+        .operations__table tr:first-child th:nth-child(3) {
+          width: 20%; }
+          .operations__table tr:first-child th:nth-child(3):after {
+            content: '';
+            display: inline-block;
+            width: 0;
+            height: 0;
+            margin: 0 0 2px 5px;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 5px solid #A7A9AC; }
+        .operations__table tr:first-child th:nth-child(4) {
+          width: 20%; }
+          .operations__table tr:first-child th:nth-child(4):after {
+            content: '';
+            display: inline-block;
+            width: 0;
+            height: 0;
+            margin: 0 0 2px 5px;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 5px solid #A7A9AC; }
+    .operations__table tr td {
+      position: relative;
+      padding: 20px 15px; }
+      .operations__table tr td:nth-child(1) {
+        font-size: 12px;
+        opacity: 0.8; }
+      .operations__table tr td:nth-child(3) {
+        padding-left: 60px; }
+        .operations__table tr td:nth-child(3):before {
+          content: '';
+          display: inline-block;
+          width: 40px;
+          height: 40px;
+          position: absolute;
+          top: 50%;
+          left: 15px;
+          transform: translateY(-50%);
+          background: url("/crop-wheat.png") 0 0/100% auto no-repeat; }
+      .operations__table tr td:nth-child(4) {
+        padding: 20px 15px 20px 30px; }
+        .operations__table tr td:nth-child(4):before {
+          content: '';
+          display: inline-block;
+          width: 25px;
+          height: 15px;
+          position: absolute;
+          top: 50%;
+          left: 0;
+          transform: translateY(-50%);
+          margin-right: 10px;
+          border-radius: 10px;
+          background: #66CC66; }
+      .operations__table tr td.assessment-green:before {
+        background: #66CC66; }
+      .operations__table tr td.assessment-red:before {
+        background: #FF7360; }
+      .operations__table tr td.assessment-yellow:before {
+        background: #FFE06D; }
+      .operations__table tr td.assessment-gray:before {
+        background: #EDEEEE; }

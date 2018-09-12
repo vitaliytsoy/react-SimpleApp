@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { Route, Link } from 'react-router-dom'
+import { Route, Link } from 'react-router-dom';
+import './scss/index.scss';
 
-
-
-import Home from './scenes/Home';
+import Operations from './scenes/Operations';
 import About from './scenes/About';
 
 export default class App extends Component {
@@ -11,12 +10,14 @@ export default class App extends Component {
     return (
       <div>
         <header>
-          <Link to="/">Home</Link>
-          <Link to="/about-us">About</Link>
+          <nav>
+            {/*<Link to="/">Home</Link>*/}
+            {/*<Link to="/about-us">About</Link>*/}
+          </nav>
         </header>
 
         <main>
-          <Route exact path="/" component={Home} />
+          <Route exact path="/" component={Operations} />
           <Route exact path="/about-us" component={About} />
         </main>
       </div>

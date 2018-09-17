@@ -24,6 +24,7 @@ class Operations extends Component {
   };
 
   render() {
+    console.log(this.props);
     return (
       <section className="operations">
         <div className="container container-operations">
@@ -48,10 +49,12 @@ class Operations extends Component {
           {
             this.state.isPlannedShown ? (
               <OperationsTable operations={this.props.plannedOperations}
-                               sortBy={this.props.sortBy}/>
+                               sortBy={this.props.sortBy}
+                               setSortType={this.props.setSortType}/>
             ) : (
               <OperationsTable operations={this.props.doneOperations}
-                               sortBy={this.props.sortBy}/>
+                               sortBy={this.props.sortBy}
+                               setSortType={this.props.setSortType}/>
             )
           }
           </div>
@@ -63,6 +66,9 @@ class Operations extends Component {
 Operations.propTypes = {
   plannedOperations: PropTypes.array,
   doneOperations: PropTypes.array,
+  fetchOperations: PropTypes.func,
+  setSortType: PropTypes.func,
+  changePage: PropTypes.func,
 };
 
 

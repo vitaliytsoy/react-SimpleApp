@@ -51,11 +51,17 @@ export default class OperationsTable extends Component {
           {/*<th v-on:click="setSortType('assessment')">Качество</th>*/}
         {/*</tr>*/}
         <tbody>
-          <tr className={ this.props.sortBy.type === }>
-            <th>Дата</th>
-            <th>Операция</th>
-            <th>Площадь</th>
-            <th>Качество</th>
+          <tr className={
+            (this.props.sortBy.type.toLowerCase() === 'date' ? 'date ' : '') +
+            (this.props.sortBy.type.toLowerCase() === 'type' ? 'type ' : '') +
+            (this.props.sortBy.type.toLowerCase() === 'area' ? 'area ' : '') +
+            (this.props.sortBy.type.toLowerCase() === 'assessment' ? 'assessment ' : '') +
+            (this.props.sortBy.isIncremental ? 'up' : 'down')
+          }>
+            <th onClick={() => this.props.setSortType('date')}>Дата</th>
+            <th onClick={() => this.props.setSortType('type')}>Операция</th>
+            <th onClick={() => this.props.setSortType('area')}>Площадь</th>
+            <th onClick={() => this.props.setSortType('assessment')}>Качество</th>
           </tr>
           {
             operationsToShow.map((item) => {
@@ -85,4 +91,5 @@ export default class OperationsTable extends Component {
 OperationsTable.propTypes = {
   operations: PropTypes.array,
   sortBy: PropTypes.object,
+  setSortType: PropTypes.func,
 };

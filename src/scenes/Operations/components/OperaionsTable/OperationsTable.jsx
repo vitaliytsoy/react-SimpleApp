@@ -38,18 +38,32 @@ export default class OperationsTable extends Component {
       month: 'short',
     }).toUpperCase().replace(new RegExp('\\.|Г.', 'g'), '');
   };
+  sortFunction = (a, b) => {
+    const sortType = this.props.sortBy.type.toLowerCase();
+    const isIncremental = this.props.sortBy.isIncremental;
+    function moreOrLess(sortBy, isFromSmallToBig) { // eslint-disable-line consistent-return
+      if (isFromSmallToBig) return a[sortBy] < b[sortBy];
+      if (!isFromSmallToBig) return a[sortBy] > b[sortBy];
+    }
+    switch (sortType.toLowerCase()) {
+      case 'date':
+        return moreOrLess('date', isIncremental);
+      case 'type':
+        return moreOrLess('type', isIncremental);
+      case 'area':
+        return moreOrLess('area', isIncremental);
+      case 'assessment':
+        return moreOrLess('assessment', isIncremental);
+      default:
+        return moreOrLess('date', isIncremental);
+    }
+  };
 
   render() {
-    const operationsToShow = this.mapToValues(this.props.operations);
+    const operationsToShow = this.mapToValues(this.props.operations).sort(this.sortFunction);
 
     return (
       <table className="operations__table" cellSpacing="0">
-        {/*<tr v-bind:class="[operationsSortedBy.type, operationsSortedBy.isIncremental ? 'up' : 'down']">*/}
-          {/*<th v-on:click="setSortType('date')">Дата</th>*/}
-          {/*<th v-on:click="setSortType('type')">Операция</th>*/}
-          {/*<th v-on:click="setSortType('area')">Площадь</th>*/}
-          {/*<th v-on:click="setSortType('assessment')">Качество</th>*/}
-        {/*</tr>*/}
         <tbody>
           <tr className={
             (this.props.sortBy.type.toLowerCase() === 'date' ? 'date ' : '') +

@@ -30,17 +30,15 @@ class Operations extends Component {
         <div className="container container-operations">
           <h2 className="" onClick={ () => { this.props.setSortType( 'type' ) } }>Операции на поле 112</h2>
           <div className="operations__toggle">
-            <div className="operations__toggle__item"
+            <div className={'operations__toggle__item ' +
+                            (this.state.isPlannedShown ? 'isActive' : '')}
                  onClick={() => { this.toggleOperationsType('planned') }}
-                 // v-bind:className="{isActive: isPlannedShown}"
-                 // v-on:click="toggleOperationsType('planned')"
             >
               Запланированные операции
             </div>
-            <div className="operations__toggle__item"
+            <div className={'operations__toggle__item ' +
+                            (!this.state.isPlannedShown ? 'isActive' : '')}
                  onClick={() => { this.toggleOperationsType('done') }}
-                  // v-bind:class="{isActive: !isPlannedShown}"
-                  // v-on:click="toggleOperationsType('done')"
             >
               Выполненные операции
 
